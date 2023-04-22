@@ -39,7 +39,7 @@ void setup()
     //had to use 16 bit timer1 for this bc 1999>255, but could switch to timers 0 or 2 with larger prescaler
     // turn on CTC mode
     TCCR1B |= (1 << WGM12); // Set CS11 bit for 8 prescaler
-    TCCR1B |= (1 << CS11);  // enable timer compare interrupt
+    TCCR1B |= (1 << CS11);  // enable timerrrr compare interrupt
     TIMSK1 |= (1 << OCIE1A);
     interrupts();           // enable
   */
@@ -55,7 +55,7 @@ void loop()
   Serial.print("   sensor reading2: ");
   Serial.println(analogRead(pir2));
   delay(1000);
-  if (analogRead(pir1) >= 500)
+  if (analogRead(pir1) >= 600)
   {
     second = true;
     if (first)
@@ -76,7 +76,7 @@ void loop()
     }
   }
 
-  if (analogRead(pir2) >= 500)
+  if (analogRead(pir2) >= 600)
   {
     first = true;
     if (second)
